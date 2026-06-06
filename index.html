@@ -244,7 +244,7 @@
             background-color: #c53030;
         }
 
-        /* 項目介紹（工程實績表格樣式） */
+        /* 項目介紹（工程實績表格樣式 - 已隱藏單號） */
         .project-table {
             width: 100%;
             border-collapse: collapse;
@@ -371,7 +371,6 @@
             .repair-grid {
                 grid-template-columns: 1fr;
             }
-            .project-table th:nth-child(2), .project-table td:nth-child(2) { display: none; } /* 手機板隱藏單號 */
         }
     </style>
 </head>
@@ -505,80 +504,69 @@
             <table class="project-table">
                 <thead>
                     <tr>
-                        <th>工程年份</th>
-                        <th>報價單號</th>
-                        <th>項目地點 / 機構名稱</th>
-                        <th>工程內容撮要</th>
-                        <th>工程狀態</th>
+                        <th style="width: 15%;">工程年份</th>
+                        <th style="width: 40%;">項目地點 / 機構名稱</th>
+                        <th style="width: 30%;">工程內容撮要</th>
+                        <th style="width: 15%;">工程狀態</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>2025 年</td>
-                        <td>CFQ-2511-153</td>
                         <td><strong>帝湖居</strong></td>
                         <td>住宅屋苑大型鐵閘專業維修</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2025 年</td>
-                        <td>CFQ-2509-124</td>
                         <td><strong>香港國際學校 / 大潭學校</strong></td>
                         <td>安全路障系統與 Bollard 安裝工程</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2025 年</td>
-                        <td>CFQ-2501-002</td>
                         <td><strong>一號銀海</strong></td>
                         <td>高空與外牆特種更換玻璃工程</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2024 年</td>
-                        <td>CFQ-2411-119</td>
                         <td><strong>觀塘碼頭</strong></td>
                         <td>液壓型專業電門機安裝工程</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2024 年</td>
-                        <td>CFQ-2411-114</td>
                         <td><strong>香港科技園 (2W3樓)</strong></td>
                         <td>商業大樓更換玻璃門頁工程</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2024 年</td>
-                        <td>CFQ-2403-032</td>
                         <td><strong>大埔警署</strong></td>
                         <td>核心更換水閘工程項目</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2024 年</td>
-                        <td>CFQ-2403-033</td>
                         <td><strong>灣仔警署</strong></td>
                         <td>核心更換水閘工程項目</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2024 年</td>
-                        <td>CFQ-2401-002-1</td>
                         <td><strong>政府飛行服務隊</strong></td>
                         <td>出入閘專用系統工程 (共 2 套)</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2024 年</td>
-                        <td>CFQ-2401-004-1</td>
                         <td><strong>政府總部 (政總)</strong></td>
                         <td>更換及加長部份車閘系統工程</td>
                         <td><span class="status-badge">已竣工</span></td>
                     </tr>
                     <tr>
                         <td>2023 年</td>
-                        <td>PO2305-036-1</td>
                         <td><strong>中華電力 (CLP 佐敦)</strong></td>
                         <td>電力設施專用吊卸閘機安裝</td>
                         <td><span class="status-badge">已竣工</span></td>
@@ -594,8 +582,8 @@
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <h4>聯絡資料</h4>
-                    <p><strong>項目顧問：</strong> Jackson NG</p>
                     <p><strong>項目經理：</strong> 蘇偉滔 (Walter SO)</p>
+                    <p><strong>項目顧問：</strong> Jackson NG</p>
                     <p><strong>自動門維修：</strong> 昌哥 (6099 5650)</p>
                     <p><strong>聯絡電話：</strong> (852) 2631 3613</p>
                     <p><strong>流動電話：</strong> (852) 6128 9867</p>
