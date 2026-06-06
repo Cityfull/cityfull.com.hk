@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城亨實業有限公司 | City Full Industrial Company Limited</title>
+    <style>
+        /* 全局樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei";
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 導覽列 */
+        header {
+            background-color: #1a365d;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .logo p {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #cbd5e0;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 25px;
+        }
+        nav ul li a {
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #3182ce;
+        }
+
+        /* 主視覺區 */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(43, 108, 176, 0.85)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+        .hero .badge {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .hero .cta-btn {
+            display: inline-block;
+            background-color: #3182ce;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        .hero .cta-btn:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* 區塊通用樣式 */
+        section {
+            padding: 80px 0;
+        }
+        section h3 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            color: #1a365d;
+        }
+        section h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #3182ce;
+            margin: 10px auto 0;
+        }
+
+        /* 關於我們 */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: #4a5568;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .team-member {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #2d3748;
+            font-weight: bold;
+        }
+        .team-member span {
+            display: block;
+            font-size: 14px;
+            color: #718096;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        /* 經營範圍 / 服務項目 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 4px solid #3182ce;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h4 {
+            font-size: 20px;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            color: #718096;
+            font-size: 15px;
+        }
+
+        /* 自動門保養維修專區 */
+        .repair-section {
+            background-color: #fff;
+        }
+        .repair-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .repair-box {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #e53e3e;
+        }
+        .repair-box h4 {
+            font-size: 22px;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+        .parts-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .parts-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 15px;
+            color: #4a5568;
+        }
+        .parts-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #e53e3e;
+            font-weight: bold;
+        }
+        /* 緊急維修熱線按鈕 */
+        .hotline-btn {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .hotline-btn:hover {
+            background-color: #c53030;
+        }
+
+        /* 項目介紹（工程實績表格樣式） */
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            margin-top: 20px;
+        }
+        .project-table th {
+            background-color: #1a365d;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-size: 16px;
+        }
+        .project-table td {
+            padding: 14px 15px;
+            border-bottom: 1px solid #edf2f7;
+            font-size: 15px;
+            color: #2d3748;
+        }
+        .project-table tr:hover {
+            background-color: #f7fafc;
+        }
+        .status-badge {
+            background-color: #48bb78;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* 聯絡我們 */
+        .contact {
+            background-color: #edf2f7;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .contact-info h4 {
+            font-size: 22px;
+            color: #1a365d;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info strong {
+            width: 120px;
+            display: inline-block;
+            color: #4a5568;
+        }
+        .contact-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #1a365d;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* 頁尾 */
+        footer {
+            background-color: #1a365d;
+            color: #a0aec0;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* 手機板響應式優化 */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+            .hero .subtitle {
+                font-size: 18px;
+            }
+            .repair-grid {
+                grid-template-columns: 1fr;
+            }
+            .project-table th:nth-child(2), .project-table td:nth-child(2) { display: none; } /* 手機板隱藏單號 */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>城亨實業有限公司</h1>
+                <p>City Full Industrial Company Limited</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首頁</a></li>
+                    <li><a href="#about">關於我們</a></li>
+                    <li><a href="#services">經營範圍</a></li>
+                    <li><a href="#repair">自動門維修</a></li>
+                    <li><a href="#projects">項目實績</a></li>
+                    <li><a href="#contact">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="badge">政府註冊電業承辦商</div>
+            <h2>城亨實業有限公司</h2>
+            <p class="subtitle">City Full Industrial Company Limited</p>
+            <p style="font-size: 18px; max-width: 600px; margin: 0 auto 30px; color: #e2e8f0;">
+                專業、安全、高效的一站式工程與安保系統解決方案。我們高興能為閣下服務，感謝惠顧！
+            </p>
+            <a href="#contact" class="cta-btn">立即聯絡我們</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h3>關於我們</h3>
+            <div class="about-content">
+                <p style="margin-bottom: 20px;">
+                    城亨實業有限公司是一家扎根香港的專業工程公司，作為<strong>政府註冊電業承辦商</strong>，我們致力於為客戶提供最安全、最合規的電力及各類工程服務。
+                </p>
+                <p style="margin-bottom: 30px;">
+                    我們擁有經驗豐富的專業項目管理與顧問團隊，過去曾服務於各大小政府機構、公共設施、著名校園及大型商場屋苑。我們秉持著「客戶至上、品質第一」的宗旨，提供全方位的一站式服務。
+                </p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        蘇偉滔 (Walter SO)
+                        <span>項目經理 / Project Manager</span>
+                    </div>
+                    <div class="team-member">
+                        Jackson NG
+                        <span>項目顧問 / Project Consultant</span>
+                    </div>
+                    <div class="team-member">
+                        昌哥
+                        <span>自動門維修總監 / Maintenance Chief</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background-color: #f7fafc;">
+        <div class="container">
+            <h3>經營範圍</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>一般小型工程承辦</h4>
+                    <p>承接各類合規一般小型工程項目，由專業團隊嚴格把關，確保施工安全與產出工程質量，符合香港法規標準。</p>
+                </div>
+                <div class="service-card">
+                    <h4>一站式自動門設計及安裝</h4>
+                    <p>提供專業的自動門系統設計、現場安裝以及長期維修保養服務。適用於商業大廈、零售商舖及各類機構設施。</p>
+                </div>
+                <div class="service-card">
+                    <h4>一站式電動大閘安保系統</h4>
+                    <p>專為住宅屋苑、工業大廈及私人場地打造電動大閘與安保系統的整合設計。從通道管制到系統安裝維修，一應俱全。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="repair" class="repair-section">
+        <div class="container">
+            <h3>自動門保養維修 / 更換零件</h3>
+            <p style="text-align: center; max-width: 800px; margin: -20px auto 40px; color: #4a5568; font-size: 17px;">
+                自動門長期運作容易因零件磨損導致故障。我們提供專業的緊急維修、定期保養年檢合約，並備有各類型原廠優質零件，確保門禁系統運作順暢、保障出入安全。
+            </p>
+            
+            <div class="repair-grid">
+                <div class="repair-box">
+                    <h4>專業保養與檢修服務</h4>
+                    <p style="color: #4a5568; font-size: 15px; margin-bottom: 10px;">我們針對商場、寫字樓、住宅大堂提供以下專業服務：</p>
+                    <ul style="padding-left: 20px; color: #4a5568; font-size: 15px; line-height: 1.8; margin-bottom: 15px;">
+                        <li><strong>緊急故障檢修：</strong>自動門夾人、無法開閉、異音過大速辦。</li>
+                        <li><strong>定期保養年檢：</strong>檢查訊號對接、防夾雷達靈敏度調校。</li>
+                        <li><strong>電力及電控測試：</strong>配合註冊電業承辦商資質，確保用電合規。</li>
+                    </ul>
+                    <p style="color: #2d3748; font-size: 15px; font-weight: bold;">緊急自動門維修熱線：</p>
+                    <a href="tel:+85260995650" class="hotline-btn">📞 聯絡昌哥：6099 5650</a>
+                </div>
+                
+                <div class="repair-box" style="border-left-color: #3182ce;">
+                    <h4>常見原廠零件更換</h4>
+                    <p style="color: #4a5568; font-size: 15px;">承接各大品牌（如微波感應、感應玻璃門等）的配件零件更換：</p>
+                    <ul class="parts-list">
+                        <li>微波/紅外線感應器</li>
+                        <li>安全防夾雷達電眼</li>
+                        <li>重型無刷馬達馬達</li>
+                        <li>微電腦中央控制器</li>
+                        <li>高耐磨吊輪/吊掛件</li>
+                        <li>傳動皮帶與張緊輪</li>
+                        <li>後備電源 (UPS)</li>
+                        <li>門禁刷卡/密碼鎖整合</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="background-color: #f7fafc;">
+        <div class="container">
+            <h3>精選項目實績</h3>
+            <p style="text-align: center; max-width: 800px; margin: -20px auto 30px; color: #4a5568; font-size: 17px;">
+                城亨實業擁有豐富的工程管理實力，以下為近年為各大機構、政府部門、學校及知名屋苑承辦之精選工程項目：
+            </p>
+            
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>工程年份</th>
+                        <th>報價單號</th>
+                        <th>項目地點 / 機構名稱</th>
+                        <th>工程內容撮要</th>
+                        <th>工程狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025 年</td>
+                        <td>CFQ-2511-153</td>
+                        <td><strong>帝湖居</strong></td>
+                        <td>住宅屋苑大型鐵閘專業維修</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2025 年</td>
+                        <td>CFQ-2509-124</td>
+                        <td><strong>香港國際學校 / 大潭學校</strong></td>
+                        <td>安全路障系統與 Bollard 安裝工程</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2025 年</td>
+                        <td>CFQ-2501-002</td>
+                        <td><strong>一號銀海</strong></td>
+                        <td>高空與外牆特種更換玻璃工程</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2024 年</td>
+                        <td>CFQ-2411-119</td>
+                        <td><strong>觀塘碼頭</strong></td>
+                        <td>液壓型專業電門機安裝工程</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2024 年</td>
+                        <td>CFQ-2411-114</td>
+                        <td><strong>香港科技園 (2W3樓)</strong></td>
+                        <td>商業大樓更換玻璃門頁工程</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2024 年</td>
+                        <td>CFQ-2403-032</td>
+                        <td><strong>大埔警署</strong></td>
+                        <td>核心更換水閘工程項目</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2024 年</td>
+                        <td>CFQ-2403-033</td>
+                        <td><strong>灣仔警署</strong></td>
+                        <td>核心更換水閘工程項目</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2024 年</td>
+                        <td>CFQ-2401-002-1</td>
+                        <td><strong>政府飛行服務隊</strong></td>
+                        <td>出入閘專用系統工程 (共 2 套)</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2024 年</td>
+                        <td>CFQ-2401-004-1</td>
+                        <td><strong>政府總部 (政總)</strong></td>
+                        <td>更換及加長部份車閘系統工程</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                    <tr>
+                        <td>2023 年</td>
+                        <td>PO2305-036-1</td>
+                        <td><strong>中華電力 (CLP 佐敦)</strong></td>
+                        <td>電力設施專用吊卸閘機安裝</td>
+                        <td><span class="status-badge">已竣工</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h3>聯絡我們</h3>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h4>聯絡資料</h4>
+                    <p><strong>項目顧問：</strong> Jackson NG</p>
+                    <p><strong>項目經理：</strong> 蘇偉滔 (Walter SO)</p>
+                    <p><strong>自動門維修：</strong> 昌哥 (6099 5650)</p>
+                    <p><strong>聯絡電話：</strong> (852) 2631 3613</p>
+                    <p><strong>流動電話：</strong> (852) 6128 9867</p>
+                    <p><strong>諮詢電郵：</strong> info@cityfull.com.hk</p>
+                    <p><strong>項目電郵：</strong> QS@cityfull.com.hk</p>
+                    <p><strong>公司地址：</strong> <br>九龍土瓜灣落山道108號志昌工業大樓地下C舖<br>Flat C, G/F., Gee Chang Industrial Building, 108 Lok Shan Road, To Kwa Wan, Kowloon</p>
+                </div>
+                <div class="contact-form">
+                    <h4>線上查詢</h4>
+                    <form action="#" method="POST" onsubmit="alert('感謝您的查詢，我們將會盡快與您聯絡！'); return false;">
+                        <div class="form-group">
+                            <label for="name">您的姓名 / 公司名稱</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">電子郵件</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">聯絡電話</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">查詢內容</label>
+                            <textarea id="message" rows="4" placeholder="請輸入您想諮詢的工程項目、保養或更換零件需求..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">送出查詢</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
