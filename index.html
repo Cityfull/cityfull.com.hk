@@ -140,24 +140,27 @@
         }
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 35px;
         }
         .team-member {
-            background: #edf2f7;
-            padding: 15px;
+            background: #fff;
+            padding: 20px;
             border-radius: 6px;
             font-size: 16px;
             color: #2d3748;
             font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border-top: 3px solid #1a365d;
         }
         .team-member span {
             display: block;
             font-size: 14px;
             color: #718096;
             font-weight: normal;
-            margin-top: 5px;
+            margin-top: 8px;
+            line-height: 1.5;
         }
 
         /* 經營範圍 / 服務項目 */
@@ -188,7 +191,7 @@
             font-size: 15px;
         }
 
-        /* 自動門保養維修專區 */
+        /* 技術專區通用雙欄佈局 */
         .repair-section {
             background-color: #fff;
         }
@@ -202,7 +205,10 @@
             background: #f7fafc;
             padding: 30px;
             border-radius: 8px;
-            border-left: 4px solid #e53e3e;
+            border-left: 4px solid #1a365d;
+        }
+        .repair-box.emergency {
+            border-left-color: #e53e3e;
         }
         .repair-box h4 {
             font-size: 22px;
@@ -226,9 +232,13 @@
             content: "✔";
             position: absolute;
             left: 0;
-            color: #e53e3e;
+            color: #3182ce;
             font-weight: bold;
         }
+        .repair-box.emergency .parts-list li::before {
+            color: #e53e3e;
+        }
+        
         /* 緊急維修熱線按鈕 */
         .hotline-btn {
             display: inline-block;
@@ -244,7 +254,7 @@
             background-color: #c53030;
         }
 
-        /* 項目介紹（工程實績表格樣式 - 已隱藏單號） */
+        /* 項目介紹 表格樣式 */
         .project-table {
             width: 100%;
             border-collapse: collapse;
@@ -388,6 +398,7 @@
                     <li><a href="#about">關於我們</a></li>
                     <li><a href="#services">經營範圍</a></li>
                     <li><a href="#repair">自動門維修</a></li>
+                    <li><a href="#pump">水泵機電</a></li>
                     <li><a href="#projects">項目實績</a></li>
                     <li><a href="#contact">聯絡我們</a></li>
                 </ul>
@@ -412,24 +423,24 @@
             <h3>關於我們</h3>
             <div class="about-content">
                 <p style="margin-bottom: 20px;">
-                    城亨實業有限公司是一家扎根香港的專業工程公司，作為<strong>政府註冊電業承辦商</strong>，我們致力於為客戶提供最安全、最合規的電力及各類工程服務。
+                    城亨實業有限公司是一家扎根香港的專業工程公司，作為<strong>政府註冊電業承辦商</strong>，我們致力於為客戶提供最安全、最合規的電力及各類機電工程服務。
                 </p>
                 <p style="margin-bottom: 30px;">
-                    我們擁有經驗豐富的專業項目管理與顧問團隊，過去曾服務於各大小政府機構、公共設施、著名校園及大型商場屋苑。我們秉持著「客戶至上、品質第一」的宗旨，提供全方位的一站式服務。
+                    我們擁有經驗豐富的專業項目管理、工程顧問與前線技術人員團隊。過去曾服務於各大小政府機構、公共設施、著名校園及大型商場屋苑。我們秉持著「客戶至上、品質第一」的宗旨，提供全方位的一站式服務。
                 </p>
                 
                 <div class="team-grid">
                     <div class="team-member">
-                        蘇偉滔 (Walter SO)
-                        <span>項目經理 / Project Manager</span>
+                        項目統籌團隊
+                        <span>負責成個工程項目的規劃、進度控管與安全監督。</span>
                     </div>
                     <div class="team-member">
-                        Jackson NG
-                        <span>項目顧問 / Project Consultant</span>
+                        專業顧問團隊
+                        <span>針對複雜的機電與自動化門禁系統，提供精準合規的技術方案。</span>
                     </div>
                     <div class="team-member">
-                        昌哥
-                        <span>自動門維修總監 / Maintenance Chief</span>
+                        前線維修團隊
+                        <span>資深技術師傅配備專屬緊急熱線，提供全天候快速搶修與更換服務。</span>
                     </div>
                 </div>
             </div>
@@ -441,16 +452,16 @@
             <h3>經營範圍</h3>
             <div class="services-grid">
                 <div class="service-card">
+                    <h4>核心技術：自動門及安保整合</h4>
+                    <p>憑藉多年深厚技術，提供各品牌自動門、電動大閘、通道管制及門禁系統的一站式設計、安裝與全天候維修保養服務。</p>
+                </div>
+                <div class="service-card">
+                    <h4>全新業務：大廈供排水及水泵機電</h4>
+                    <p>配合電業承辦商資質，承接大廈水泵控制箱（Control Box）翻新、智能感應器優化、水泵馬達更換與泵房日常安全巡檢。</p>
+                </div>
+                <div class="service-card">
                     <h4>一般小型工程承辦</h4>
-                    <p>承接各類合規一般小型工程項目，由專業團隊嚴格把關，確保施工安全與產出工程質量，符合香港法規標準。</p>
-                </div>
-                <div class="service-card">
-                    <h4>一站式自動門設計及安裝</h4>
-                    <p>提供專業的自動門系統設計、現場安裝以及長期維修保養服務。適用於商業大廈、零售商舖及各類機構設施。</p>
-                </div>
-                <div class="service-card">
-                    <h4>一站式電動大閘安保系統</h4>
-                    <p>專為住宅屋苑、工業大廈及私人場地打造電動大閘與安保系統的整合設計。從通道管制到系統安裝維修，一應俱全。</p>
+                    <p>承接各類合規一般小型工程與加裝項目，由專業團隊嚴格把關施工安全與質量，完全符合香港政府及物管法規標準。</p>
                 </div>
             </div>
         </div>
@@ -458,22 +469,21 @@
 
     <section id="repair" class="repair-section">
         <div class="container">
-            <h3>自動門保養維修 / 更換零件</h3>
+            <h3>核心卓越：自動門保養維修 / 更換零件</h3>
             <p style="text-align: center; max-width: 800px; margin: -20px auto 40px; color: #4a5568; font-size: 17px;">
-                自動門長期運作容易因零件磨損導致故障。我們提供專業的緊急維修、定期保養年檢合約，並備有各類型原廠優質零件，確保門禁系統運作順暢、保障出入安全。
+                城亨實業在自動門領域技術成熟、經驗豐富。我們針對商場、寫字樓、住宅大堂及政府機關提供高規格的緊急搶修與定期年檢保養合約，配備各大品牌原廠配件，確保出入系統全天候安全運作。
             </p>
             
             <div class="repair-grid">
-                <div class="repair-box">
-                    <h4>專業保養與檢修服務</h4>
-                    <p style="color: #4a5568; font-size: 15px; margin-bottom: 10px;">我們針對商場、寫字樓、住宅大堂提供以下專業服務：</p>
+                <div class="repair-box emergency">
+                    <h4>專業保養與緊急檢修服務</h4>
                     <ul style="padding-left: 20px; color: #4a5568; font-size: 15px; line-height: 1.8; margin-bottom: 15px;">
-                        <li><strong>緊急故障檢修：</strong>自動門夾人、無法開閉、異音過大速辦。</li>
-                        <li><strong>定期保養年檢：</strong>檢查訊號對接、防夾雷達靈敏度調校。</li>
-                        <li><strong>電力及電控測試：</strong>配合註冊電業承辦商資質，確保用電合規。</li>
+                        <li><strong>緊急故障檢修：</strong>自動門夾人、無法開閉、異音過大即時辦理。</li>
+                        <li><strong>定期保養年檢：</strong>檢查訊號對接、防夾雷達靈敏度精密調校。</li>
+                        <li><strong>系統升級整合：</strong>配合現有門禁、刷卡密碼及消防系統連動優化。</li>
                     </ul>
                     <p style="color: #2d3748; font-size: 15px; font-weight: bold;">緊急自動門維修熱線：</p>
-                    <a href="tel:+85260995650" class="hotline-btn">📞 聯絡昌哥：6099 5650</a>
+                    <a href="tel:+85260995650" class="hotline-btn">📞 聯絡工程部：6099 5650</a>
                 </div>
                 
                 <div class="repair-box" style="border-left-color: #3182ce;">
@@ -494,7 +504,41 @@
         </div>
     </section>
 
-    <section id="projects" style="background-color: #f7fafc;">
+    <section id="pump" style="background-color: #f7fafc;">
+        <div class="container">
+            <h3>全新業務：大廈供排水及水泵機電工程</h3>
+            <p style="text-align: center; max-width: 800px; margin: -20px auto 40px; color: #4a5568; font-size: 17px;">
+                大廈供水與排水系統與日常生活息息相關。城亨實業發揮「註冊電業承辦商」的專業優勢，為物業管理及各大機構提供水泵供電控制系統整合、馬達設備翻新及標準化巡檢服務。
+            </p>
+            
+            <div class="repair-grid">
+                <div class="repair-box" style="border-left-color: #2b6cb0; background: #fff;">
+                    <h4>機電控制與設備優化</h4>
+                    <p style="color: #4a5568; font-size: 15px; margin-bottom: 10px;">結合強電及自動化控制經驗，保障泵房用電安全與運作效率：</p>
+                    <ul style="padding-left: 20px; color: #4a5568; font-size: 15px; line-height: 1.8;">
+                        <li><strong>控制箱 (Control Box) 翻新：</strong>更換過載保護器（Overload Replay）、接觸器（Contactor）及線路整改。</li>
+                        <li><strong>智能液位感應優化：</strong> Float Switch (浮球開關) 與電極棒訊號對接調校。</li>
+                        <li><strong>雙泵交替系統設定：</strong>調校多泵交替運作控制，延長馬達壽命。</li>
+                    </ul>
+                </div>
+                
+                <div class="repair-box" style="border-left-color: #48bb78; background: #fff;">
+                    <h4>日常巡檢與更換服務</h4>
+                    <p style="color: #4a5568; font-size: 15px; margin-bottom: 10px;">為大廈食水泵、沖廁水泵及排水泵提供預防性維護：</p>
+                    <ul class="parts-list">
+                        <li>水泵泵房日常安全巡檢</li>
+                        <li>水泵運行電流及電壓測試</li>
+                        <li>運轉異音及震動異常檢測</li>
+                        <li>水泵馬達 (Motor) 故障更換</li>
+                        <li>壓力缸壓力及閥門基本巡查</li>
+                        <li>開關閘閥與過濾網基本清潔</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
         <div class="container">
             <h3>精選項目實績</h3>
             <p style="text-align: center; max-width: 800px; margin: -20px auto 30px; color: #4a5568; font-size: 17px;">
@@ -582,13 +626,11 @@
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <h4>聯絡資料</h4>
-                    <p><strong>項目經理：</strong> 蘇偉滔 (Walter SO)</p>
-                    <p><strong>項目顧問：</strong> Jackson NG</p>
-                    <p><strong>自動門維修：</strong> 昌哥 (6099 5650)</p>
-                    <p><strong>聯絡電話：</strong> (852) 2631 3613</p>
+                    <p><strong>工程項目部：</strong> info@cityfull.com.hk</p>
+                    <p><strong>標書及合約：</strong> QS@cityfull.com.hk</p>
+                    <p><strong>緊急維修熱線：</strong> (852) 6099 5650</p>
+                    <p><strong>公司電話：</strong> (852) 2631 3613</p>
                     <p><strong>流動電話：</strong> (852) 6128 9867</p>
-                    <p><strong>諮詢電郵：</strong> info@cityfull.com.hk</p>
-                    <p><strong>項目電郵：</strong> QS@cityfull.com.hk</p>
                     <p><strong>公司地址：</strong> <br>九龍土瓜灣落山道108號志昌工業大樓地下C舖<br>Flat C, G/F., Gee Chang Industrial Building, 108 Lok Shan Road, To Kwa Wan, Kowloon</p>
                 </div>
                 <div class="contact-form">
@@ -608,7 +650,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">查詢內容</label>
-                            <textarea id="message" rows="4" placeholder="請輸入您想諮詢的工程項目、保養或更換零件需求..." required></textarea>
+                            <textarea id="message" rows="4" placeholder="請輸入您想諮詢的工程項目、自動門保養、水泵巡檢或機電改造需求..." required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">送出查詢</button>
                     </form>
