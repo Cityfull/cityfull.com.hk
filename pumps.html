@@ -10,13 +10,18 @@
         a { text-decoration: none; color: inherit; }
         .container { width: 85%; max-width: 1200px; margin: 0 auto; }
         
-        header { background-color: #1a365d; color: #fff; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        header .container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo h1 { font-size: 24px; font-weight: 700; }
-        .logo p { font-size: 12px; color: #cbd5e0; }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a:hover { color: #63b3ed; }
+        header { background-color: #ffffff; color: #1a365d; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        header .container { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+        .logo-container img { height: 48px; width: auto; display: block; }
+        nav ul { display: flex; list-style: none; align-items: center; }
+        nav ul li { margin-left: 20px; position: relative; }
+        nav ul li a { font-size: 15px; font-weight: 600; color: #1a365d; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-btn { background-color: #1a365d; color: white !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; }
+        .dropdown-content a { color: #2d3748 !important; padding: 12px 16px; display: block; font-size: 14px; border-bottom: 1px solid #edf2f7; }
+        .dropdown:hover .dropdown-content { display: block; }
 
         .page-header { background: #1a365d; color: white; padding: 120px 0 40px; text-align: center; }
         .page-header h2 { font-size: 36px; margin-bottom: 10px; }
@@ -26,22 +31,33 @@
         .project-table td { padding: 14px 15px; border-bottom: 1px solid #edf2f7; font-size: 15px; }
         .status-badge { background-color: #48bb78; color: white; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
 
-        footer { background-color: #1a365d; color: #a0aec0; padding: 20px 0; text-align: center; font-size: 14px; margin-top: 60px; }
+        footer { background-color: #1a365d; color: #e2e8f0; padding: 40px 0 20px; font-size: 14px; margin-top: 60px; border-top: 3px solid #3182ce; }
+        .footer-container { width: 85%; max-width: 1100px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+        .footer-box h5 { color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+        .footer-box p { margin-bottom: 6px; color: #cbd5e0; line-height: 1.6; }
+        .footer-box strong { color: #ffffff; }
+        .footer-bottom { padding-top: 20px; text-align: center; font-size: 13px; color: #a0aec0; }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">
-                <h1>城亨實業有限公司</h1>
-                <p>City Full Industrial Company Limited</p>
+            <div class="logo-container">
+                <a href="index.html"><img src="logo.png" alt="城亨實業有限公司 Logo"></a>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">首頁</a></li>
-                    <li><a href="timber.html">戶外木工程</a></li>
-                    <li><a href="gates.html">電動閘/自動門</a></li>
-                    <li><a href="pumps.html" style="color:#63b3ed; font-weight:bold;">水泵/壓力缸</a></li>
+                    <li><a href="about.html">關於我們</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-btn">核心服務與工程實績 ▼</a>
+                        <div class="dropdown-content">
+                            <a href="timber.html">🪵 戶外木工程專頁</a>
+                            <a href="gates.html">🚪 電動閘 / 自動門專頁</a>
+                            <a href="pumps.html">🚰 水泵 / 壓力缸專頁</a>
+                        </div>
+                    </li>
                     <li><a href="index.html#contact">聯絡我們</a></li>
                 </ul>
             </nav>
@@ -74,8 +90,24 @@
     </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。</p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-box">
+                    <h5>城亨實業有限公司</h5>
+                    <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">City Full Industrial Company Limited</p>
+                    <p><strong>資質認可：</strong>政府註冊電業承辦商</p>
+                    <p><strong>公司地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
+                </div>
+                <div class="footer-box">
+                    <h5>快速聯絡方式</h5>
+                    <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
+                    <p><strong>維修熱線：</strong>6099 5650 (昌哥)</p>
+                    <p><strong>諮詢電郵：</strong>info@cityfull.com.hk</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
+            </div>
         </div>
     </footer>
 </body>

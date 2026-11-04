@@ -5,355 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>城亨實業有限公司 | City Full Industrial Company Limited</title>
     <style>
-        /* 全局樣式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei";
-        }
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .container {
-            width: 85%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei"; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+        .container { width: 85%; max-width: 1200px; margin: 0 auto; }
 
-        /* 導覽列與 Logo 整合 */
-        header {
-            background-color: #ffffff;
-            color: #1a365d;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-container img {
-            height: 48px;
-            width: auto;
-            display: block;
-        }
+        /* 導覽列 */
+        header { background-color: #ffffff; color: #1a365d; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        header .container { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+        .logo-container img { height: 48px; width: auto; display: block; }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            align-items: center;
-        }
-        nav ul li {
-            margin-left: 20px;
-            position: relative;
-        }
-        nav ul li a {
-            font-size: 15px;
-            font-weight: 600;
-            color: #1a365d;
-            transition: color 0.3s;
-        }
-        nav ul li a:hover {
-            color: #3182ce;
-        }
+        nav ul { display: flex; list-style: none; align-items: center; }
+        nav ul li { margin-left: 20px; position: relative; }
+        nav ul li a { font-size: 15px; font-weight: 600; color: #1a365d; transition: color 0.3s; }
+        nav ul li a:hover { color: #3182ce; }
 
-        /* 下拉選單樣式 */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-btn {
-            background-color: #1a365d;
-            color: white !important;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #ffffff;
-            min-width: 180px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
-            border-radius: 4px;
-            top: 100%;
-            left: 0;
-            overflow: hidden;
-            z-index: 1001;
-        }
-        .dropdown-content a {
-            color: #2d3748 !important;
-            padding: 12px 16px;
-            display: block;
-            font-size: 14px;
-            border-bottom: 1px solid #edf2f7;
-            transition: background 0.2s;
-        }
-        .dropdown-content a:hover {
-            background-color: #ebf8ff;
-            color: #2b6cb0 !important;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+        /* 下拉選單 */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-btn { background-color: #1a365d; color: white !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; overflow: hidden; z-index: 1001; }
+        .dropdown-content a { color: #2d3748 !important; padding: 12px 16px; display: block; font-size: 14px; border-bottom: 1px solid #edf2f7; }
+        .dropdown-content a:hover { background-color: #ebf8ff; color: #2b6cb0 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* 主視覺區 */
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.88), rgba(43, 108, 176, 0.88)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            min-height: 85vh;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 110px;
-            padding-bottom: 60px;
-        }
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        .hero .subtitle {
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: #e2e8f0;
-        }
-        .hero .badge {
-            display: inline-block;
-            background-color: #e53e3e;
-            color: white;
-            padding: 6px 18px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
+        /* Hero 主視覺區 */
+        .hero { background: linear-gradient(rgba(26, 54, 93, 0.88), rgba(43, 108, 176, 0.88)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; min-height: 65vh; color: #fff; display: flex; align-items: center; text-align: center; padding-top: 110px; padding-bottom: 60px; }
+        .hero h2 { font-size: 42px; margin-bottom: 10px; letter-spacing: 2px; }
+        .hero .subtitle { font-size: 22px; margin-bottom: 20px; color: #e2e8f0; }
+        .hero .badge { display: inline-block; background-color: #e53e3e; color: white; padding: 6px 18px; border-radius: 4px; font-weight: bold; font-size: 15px; margin-bottom: 20px; }
 
-        /* 兩層式按鈕設計 (折疊/展開) */
-        .portal-wrapper {
-            margin-top: 35px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .main-portal-trigger {
-            background: #ffffff;
-            color: #1a365d;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .main-portal-trigger:hover {
-            background: #ebf8ff;
-            color: #2b6cb0;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        .trigger-arrow {
-            font-size: 14px;
-            transition: transform 0.3s ease;
-        }
+        /* Section 通用 */
+        section { padding: 70px 0; }
+        section h3 { text-align: center; font-size: 32px; margin-bottom: 40px; position: relative; color: #1a365d; }
+        section h3::after { content: ''; display: block; width: 50px; height: 3px; background-color: #3182ce; margin: 10px auto 0; }
 
-        /* 第二層：預設隱藏的分類選項 */
-        .sub-portal-container {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: all 0.4s ease-in-out;
-            margin-top: 0;
-        }
-        .sub-portal-container.active {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 25px;
-        }
-        .portal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 25px;
-            border-radius: 12px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .portal-btn {
-            background: #ffffff;
-            color: #1a365d;
-            padding: 18px 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-            display: block;
-            border-bottom: 4px solid #3182ce;
-        }
-        .portal-btn:hover {
-            transform: translateY(-4px);
-            background: #ebf8ff;
-            color: #2b6cb0;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.25);
-        }
-        .portal-btn span {
-            display: block;
-            font-size: 12px;
-            color: #718096;
-            font-weight: normal;
-            margin-top: 4px;
-        }
+        /* 核心服務與工程專頁卡片 */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: #fff; padding: 35px 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid #3182ce; transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h4 { font-size: 22px; color: #2d3748; margin-bottom: 15px; }
+        .service-card p { color: #718096; font-size: 15px; margin-bottom: 20px; }
+        .card-link-btn { display: inline-block; background-color: #3182ce; color: white; padding: 10px 20px; border-radius: 4px; font-size: 15px; font-weight: bold; transition: background 0.3s; }
+        .card-link-btn:hover { background-color: #2b6cb0; }
 
-        /* 通用區塊標題 */
-        section {
-            padding: 80px 0;
-        }
-        section h3 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 40px;
-            position: relative;
-            color: #1a365d;
-        }
-        section h3::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #3182ce;
-            margin: 10px auto 0;
-        }
+        /* 為何選擇我們區塊 */
+        .why-us { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b2?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; color: white; }
+        .why-us h3 { color: white; }
+        .why-us h3::after { background-color: #63b3ed; }
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .why-box { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); padding: 20px; border-radius: 6px; border-left: 4px solid #63b3ed; font-size: 16px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
 
-        /* 經營範圍卡片 */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background: #fff;
-            padding: 35px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 4px solid #3182ce;
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h4 {
-            font-size: 20px;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-        .service-card p {
-            color: #718096;
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-        .card-link-btn {
-            display: inline-block;
-            background-color: #3182ce;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .card-link-btn:hover {
-            background-color: #2b6cb0;
-        }
+        /* 服務流程區塊 */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px; }
+        .process-card { background: white; border-radius: 10px; border: 1px solid #e2e8f0; padding: 25px 20px; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
+        .process-num { font-size: 38px; font-weight: 800; color: #3182ce; opacity: 0.8; line-height: 1; margin-bottom: 10px; }
+        .process-card h4 { font-size: 20px; color: #1a365d; margin-bottom: 12px; }
+        .process-card ul { list-style: none; padding-left: 0; }
+        .process-card ul li { font-size: 14px; color: #4a5568; margin-bottom: 8px; position: relative; padding-left: 15px; }
+        .process-card ul li::before { content: '•'; color: #3182ce; position: absolute; left: 0; font-weight: bold; }
 
         /* 聯絡我們 */
-        .contact {
-            background-color: #edf2f7;
-        }
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        .contact-info h4 {
-            font-size: 22px;
-            color: #1a365d;
-            margin-bottom: 20px;
-        }
-        .contact-info p {
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-        .contact-info strong {
-            width: 120px;
-            display: inline-block;
-            color: #4a5568;
-        }
+        .contact { background-color: #edf2f7; }
 
-        footer {
-            background-color: #1a365d;
-            color: #a0aec0;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 14px;
-        }
+        /* 精簡頁尾 Footer */
+        footer { background-color: #1a365d; color: #e2e8f0; padding: 40px 0 20px; font-size: 14px; margin-top: 60px; border-top: 3px solid #3182ce; }
+        .footer-container { width: 85%; max-width: 1100px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+        .footer-box h5 { color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+        .footer-box p { margin-bottom: 6px; color: #cbd5e0; line-height: 1.6; }
+        .footer-box strong { color: #ffffff; }
+        .footer-bottom { padding-top: 20px; text-align: center; font-size: 13px; color: #a0aec0; }
 
         @media (max-width: 768px) {
             header .container { flex-direction: column; }
-            .logo-container img { height: 38px; }
-            nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
-            nav ul li { margin: 5px 10px; }
-            .hero h2 { font-size: 30px; }
-            .hero .subtitle { font-size: 18px; }
-            .main-portal-trigger { font-size: 16px; padding: 14px 24px; }
+            nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 5px 8px; }
+            .hero h2 { font-size: 28px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 25px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 頂部導覽列（含公司 Logo） -->
+    <!-- 頂部導覽列 -->
     <header>
         <div class="container">
             <div class="logo-container">
-                <a href="index.html">
-                    <img src="logo.png" alt="城亨實業有限公司 Logo">
-                </a>
+                <a href="index.html"><img src="logo.png" alt="城亨實業有限公司 Logo"></a>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">首頁</a></li>
-                    <li><a href="#about">關於我們</a></li>
-                    <li><a href="#services">經營範圍</a></li>
+                    <li><a href="about.html">關於我們</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-btn">專頁實績 ▼</a>
+                        <a href="#" class="dropdown-btn">核心服務與工程實績 ▼</a>
                         <div class="dropdown-content">
-                            <a href="timber.html">🪵 戶外木工程實績</a>
-                            <a href="gates.html">🚪 電動閘 / 自動門實績</a>
-                            <a href="pumps.html">🚰 水泵 / 壓力缸實績</a>
+                            <a href="timber.html">🪵 戶外木工程專頁</a>
+                            <a href="gates.html">🚪 電動閘 / 自動門專頁</a>
+                            <a href="pumps.html">🚰 水泵 / 壓力缸專頁</a>
                         </div>
                     </li>
                     <li><a href="#contact">聯絡我們</a></li>
@@ -368,66 +117,91 @@
             <div class="badge">政府註冊電業承辦商</div>
             <h2>城亨實業有限公司</h2>
             <p class="subtitle">City Full Industrial Company Limited</p>
-            <p style="font-size: 17px; max-width: 650px; margin: 0 auto 10px; color: #e2e8f0;">
-                專業承辦戶外木工程、電動閘/自動門維修檢測，以及水泵壓力缸水務工程。
+            <p style="font-size: 17px; max-width: 700px; margin: 0 auto; color: #e2e8f0;">
+                專業承辦戶外木工程、電動趟閘/自動門檢測保養及緊急維修，以及水泵壓力缸水務工程。
             </p>
+        </div>
+    </section>
 
-            <!-- 第一層：單一入口按鈕 -->
-            <div class="portal-wrapper">
-                <button class="main-portal-trigger" onclick="togglePortal()">
-                    📂 點擊瀏覽分類工程實績 (Job References) <span class="trigger-arrow" id="portalArrow">▼</span>
-                </button>
-
-                <!-- 第二層：點擊後展開的三個專頁選項 -->
-                <div class="sub-portal-container" id="subPortal">
-                    <div class="portal-grid">
-                        <a href="timber.html" class="portal-btn">
-                            🪵 戶外木工程
-                            <span>獨立屋 / 天台地台工程</span>
-                        </a>
-                        <a href="gates.html" class="portal-btn">
-                            🚪 電動閘 / 自動門
-                            <span>車閘 / 捲閘 / 24小時緊急維修</span>
-                        </a>
-                        <a href="pumps.html" class="portal-btn">
-                            🚰 水泵 / 壓力缸
-                            <span>警署水閘 / 泵房維修 / 壓力缸工程</span>
-                        </a>
-                    </div>
+    <!-- 核心服務與工程實績 -->
+    <section id="services">
+        <div class="container">
+            <h3>核心服務與工程實績</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>🪵 戶外木工程</h4>
+                    <p>承辦環保木、防腐木地台鋪設，適用於獨立屋泳池旁及商業大廈天台，附設保養護養服務。</p>
+                    <a href="timber.html" class="card-link-btn">瀏覽戶外木專頁 & 實績 →</a>
+                </div>
+                <div class="service-card">
+                    <h4>🚪 電動趟閘 / 自動門</h4>
+                    <p>一站式電動閘、捲閘保養年檢、出具《安全檢查報告》、24小時 E-Call 緊急故障維修及零件更換。</p>
+                    <a href="gates.html" class="card-link-btn">瀏覽電動閘專頁 & 實績 →</a>
+                </div>
+                <div class="service-card">
+                    <h4>🚰 水泵 / 壓力缸工程</h4>
+                    <p>承辦警署及政府設施核心水閘更換、水泵改善、淡水/鹹水泵維修及氣壓缸系統工程。</p>
+                    <a href="pumps.html" class="card-link-btn">瀏覽水泵專頁 & 實績 →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 關於我們 -->
-    <section id="about">
+    <!-- 為何選擇我們 -->
+    <section class="why-us">
         <div class="container">
-            <h3>關於我們</h3>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 17px; color: #4a5568;">
-                城亨實業有限公司為<strong>政府註冊電業承辦商</strong>，擁有豐富的工程管理與技術團隊，曾服務於政府部門、警署、學校及各大物業屋苑。
-            </p>
+            <h3>為何選擇我們</h3>
+            <div class="why-grid">
+                <div class="why-box">👍 政府註冊電業承辦商，專業合規</div>
+                <div class="why-box">👑 工程顧問及資深技術人員全程直接參與，品質保證</div>
+                <div class="why-box">👍 一站式服務：項目評估、合理報價、施工監察及定期保養</div>
+                <div class="why-box">👍 專業施工均不外判，技術團隊即時響應</div>
+                <div class="why-box">👍 選用高品質優質物料及高端專業機械設備</div>
+                <div class="why-box">👍 價錢公道透明，提供優質可靠服務</div>
+            </div>
         </div>
     </section>
 
-    <!-- 經營範圍 -->
-    <section id="services" style="background-color: #f7fafc;">
+    <!-- 服務流程 -->
+    <section style="background-color: #f8fafc;">
         <div class="container">
-            <h3>核心服務與工程專頁</h3>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h4>戶外木工程</h4>
-                    <p>專業承辦環保木、防腐木地台鋪設，適用於獨立屋泳池旁及商業大廈天台。</p>
-                    <a href="timber.html" class="card-link-btn">進入戶外木專頁 →</a>
+            <h3>服務流程</h3>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-num">01</div>
+                    <h4>規劃方案</h4>
+                    <ul>
+                        <li>初步了解項目範疇及客戶需求，評估工程預算</li>
+                        <li>項目經理現場考察，進行實地測量及提供專業意見</li>
+                        <li>向客戶解釋工程方案、顏色物料配合及施工流程</li>
+                    </ul>
                 </div>
-                <div class="service-card">
-                    <h4>電動趟閘 / 自動門</h4>
-                    <p>提供一站式電動閘、捲閘保養年檢、24小時 E-Call 緊急維修及零件更換。</p>
-                    <a href="gates.html" class="card-link-btn">進入電動閘專頁 →</a>
+                <div class="process-card">
+                    <div class="process-num">02</div>
+                    <h4>工程確認</h4>
+                    <ul>
+                        <li>根據客戶預算及已確認方案，提供詳細合理報價</li>
+                        <li>確保客戶清楚掌握施工材料細節及工序流程</li>
+                        <li>買賣雙方簽訂工程合約</li>
+                    </ul>
                 </div>
-                <div class="service-card">
-                    <h4>水泵 / 壓力缸工程</h4>
-                    <p>承辦核心水閘更換、水泵改善及壓力缸維修工程，確保水務系統運作順暢。</p>
-                    <a href="pumps.html" class="card-link-btn">進入水泵專頁 →</a>
+                <div class="process-card">
+                    <div class="process-num">03</div>
+                    <h4>工程展開</h4>
+                    <ul>
+                        <li>依照施工進度表，以專業嚴謹態度進行施工</li>
+                        <li>項目經理定期視察場地，監督進度與項目</li>
+                        <li>按階段向客戶匯報施工進度，按時完工提請驗收</li>
+                    </ul>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">04</div>
+                    <h4>保養管理</h4>
+                    <ul>
+                        <li>於保養期間，定期派遣專員視察場地</li>
+                        <li>當發現因施工問題出現損毀，會盡快安排修補</li>
+                        <li>與客戶維持良好合作關係，令客戶安心使用服務</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -437,40 +211,38 @@
     <section id="contact" class="contact">
         <div class="container">
             <h3>聯絡我們</h3>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h4>聯絡資料</h4>
-                    <p><strong>項目經理：</strong> 蘇偉滔 (Walter SO)</p>
-                    <p><strong>自動門維修：</strong> 昌哥 (6099 5650)</p>
-                    <p><strong>聯絡電話：</strong> (852) 2631 3613 / 6128 9867</p>
-                    <p><strong>諮詢電郵：</strong> info@cityfull.com.hk / QS@cityfull.com.hk</p>
-                    <p><strong>公司地址：</strong> 九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
-                </div>
+            <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <p style="margin-bottom: 10px;"><strong>項目經理：</strong> 蘇偉滔 (Walter SO)</p>
+                <p style="margin-bottom: 10px;"><strong>自動門維修熱線：</strong> 6099 5650 (昌哥)</p>
+                <p style="margin-bottom: 10px;"><strong>辦公室電話：</strong> (852) 2631 3613 / 6128 9867</p>
+                <p style="margin-bottom: 10px;"><strong>諮詢電郵：</strong> info@cityfull.com.hk / QS@cityfull.com.hk</p>
+                <p><strong>公司地址：</strong> 九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
             </div>
         </div>
     </section>
 
+    <!-- 整理版頁尾 Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。</p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-box">
+                    <h5>城亨實業有限公司</h5>
+                    <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">City Full Industrial Company Limited</p>
+                    <p><strong>資質認可：</strong>政府註冊電業承辦商</p>
+                    <p><strong>公司地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
+                </div>
+                <div class="footer-box">
+                    <h5>快速聯絡方式</h5>
+                    <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
+                    <p><strong>維修熱線：</strong>6099 5650 (昌哥)</p>
+                    <p><strong>諮詢電郵：</strong>info@cityfull.com.hk</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
+            </div>
         </div>
     </footer>
-
-    <!-- 折疊展開 JavaScript 腳本 -->
-    <script>
-        function togglePortal() {
-            var subPortal = document.getElementById('subPortal');
-            var arrow = document.getElementById('portalArrow');
-            
-            if (subPortal.classList.contains('active')) {
-                subPortal.classList.remove('active');
-                arrow.style.transform = 'rotate(0deg)';
-            } else {
-                subPortal.classList.add('active');
-                arrow.style.transform = 'rotate(180deg)';
-            }
-        }
-    </script>
 
 </body>
 </html>
