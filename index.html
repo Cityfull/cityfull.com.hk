@@ -64,24 +64,14 @@
         .process-card ul li { font-size: 14px; color: #4a5568; margin-bottom: 8px; position: relative; padding-left: 15px; }
         .process-card ul li::before { content: '•'; color: #3182ce; position: absolute; left: 0; font-weight: bold; }
 
-        /* 聯絡我們 */
-        .contact { background-color: #edf2f7; }
-
-        /* 精簡頁尾 Footer */
-        footer { background-color: #1a365d; color: #e2e8f0; padding: 40px 0 20px; font-size: 14px; margin-top: 60px; border-top: 3px solid #3182ce; }
-        .footer-container { width: 85%; max-width: 1100px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
-        .footer-box h5 { color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 12px; }
-        .footer-box p { margin-bottom: 6px; color: #cbd5e0; line-height: 1.6; }
-        .footer-box strong { color: #ffffff; }
-        .footer-bottom { padding-top: 20px; text-align: center; font-size: 13px; color: #a0aec0; }
+        /* 極簡頁尾 Footer (不含聯絡資料) */
+        footer { background-color: #1a365d; color: #cbd5e0; padding: 25px 0; font-size: 14px; border-top: 3px solid #3182ce; text-align: center; }
 
         @media (max-width: 768px) {
             header .container { flex-direction: column; }
             nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
             nav ul li { margin: 5px 8px; }
             .hero h2 { font-size: 28px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 25px; }
         }
     </style>
 </head>
@@ -105,7 +95,7 @@
                             <a href="pumps.html">🚰 水泵 / 壓力缸專頁</a>
                         </div>
                     </li>
-                    <li><a href="#contact">聯絡我們</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
                 </ul>
             </nav>
         </div>
@@ -207,40 +197,10 @@
         </div>
     </section>
 
-    <!-- 聯絡我們 -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h3>聯絡我們</h3>
-            <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                <p style="margin-bottom: 10px;"><strong>項目經理：</strong> 蘇偉滔 (Walter SO)</p>
-                <p style="margin-bottom: 10px;"><strong>自動門維修熱線：</strong> 6099 5650 (昌哥)</p>
-                <p style="margin-bottom: 10px;"><strong>辦公室電話：</strong> (852) 2631 3613 / 6128 9867</p>
-                <p style="margin-bottom: 10px;"><strong>諮詢電郵：</strong> info@cityfull.com.hk / QS@cityfull.com.hk</p>
-                <p><strong>公司地址：</strong> 九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 整理版頁尾 Footer -->
+    <!-- 極簡版面頁尾 Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-box">
-                    <h5>城亨實業有限公司</h5>
-                    <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">City Full Industrial Company Limited</p>
-                    <p><strong>資質認可：</strong>政府註冊電業承辦商</p>
-                    <p><strong>公司地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
-                </div>
-                <div class="footer-box">
-                    <h5>快速聯絡方式</h5>
-                    <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
-                    <p><strong>維修熱線：</strong>6099 5650 (昌哥)</p>
-                    <p><strong>諮詢電郵：</strong>info@cityfull.com.hk</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
-            </div>
+        <div class="container">
+            &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
         </div>
     </footer>
 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 | 城亨實業有限公司</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei"; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+        .container { width: 85%; max-width: 1200px; margin: 0 auto; }
+
+        header { background-color: #ffffff; color: #1a365d; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        header .container { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+        .logo-container img { height: 48px; width: auto; display: block; }
+
+        nav ul { display: flex; list-style: none; align-items: center; }
+        nav ul li { margin-left: 20px; position: relative; }
+        nav ul li a { font-size: 15px; font-weight: 600; color: #1a365d; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-btn { background-color: #1a365d; color: white !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; z-index: 1001; }
+        .dropdown-content a { color: #2d3748 !important; padding: 12px 16px; display: block; font-size: 14px; border-bottom: 1px solid #edf2f7; }
+        .dropdown-content a:hover { background-color: #ebf8ff; color: #2b6cb0 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .page-header { background: #1a365d; color: white; padding: 120px 0 40px; text-align: center; }
+        .page-header h2 { font-size: 36px; margin-bottom: 10px; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px auto; }
+        .contact-card { background: white; padding: 35px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #3182ce; }
+        .contact-card h3 { color: #1a365d; font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid #edf2f7; padding-bottom: 10px; }
+        .contact-card p { font-size: 16px; color: #4a5568; margin-bottom: 12px; }
+        .contact-card strong { color: #1a365d; }
+        .highlight-phone { color: #e53e3e; font-weight: bold; font-size: 18px; }
+
+        footer { background-color: #1a365d; color: #cbd5e0; padding: 25px 0; font-size: 14px; border-top: 3px solid #3182ce; text-align: center; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; }
+            nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 5px 8px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html"><img src="logo.png" alt="城亨實業有限公司 Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="about.html">關於我們</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-btn">核心服務與工程實績 ▼</a>
+                        <div class="dropdown-content">
+                            <a href="timber.html">🪵 戶外木工程專頁</a>
+                            <a href="gates.html">🚪 電動閘 / 自動門專頁</a>
+                            <a href="pumps.html">🚰 水泵 / 壓力缸專頁</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html" style="color:#3182ce; font-weight:bold;">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h2>聯絡我們</h2>
+            <p>歡迎隨時查詢工程報價、現場勘查及緊急故障維修</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>🏢 公司辦公室聯絡</h3>
+                <p><strong>公司名稱：</strong>城亨實業有限公司</p>
+                <p><strong>英文名稱：</strong>City Full Industrial Company Limited</p>
+                <p><strong>政府資質：</strong>政府註冊電業承辦商</p>
+                <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
+                <p><strong>諮詢電郵：</strong>info@cityfull.com.hk / QS@cityfull.com.hk</p>
+                <p><strong>辦公地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>⚡ 專責負責人與熱線</h3>
+                <p><strong>項目經理：</strong>Walter So (6128 9867)</p>
+                <p><strong>自動門/趟閘維修熱線：</strong><span class="highlight-phone">6099 5650 (昌哥)</span></p>
+                <p><strong>服務範疇：</strong>戶外木地台、電動趟閘/捲閘、水泵氣壓缸及緊急 E-Call 支援。</p>
+                <p style="margin-top: 20px; font-size: 14px; color: #718096; background: #ebf8ff; padding: 12px; border-radius: 6px;">
+                    💡 提示：如需索取工程維修標準價目表 (Standard Rate Card)，可直接致電或電郵與我們聯絡。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
+        </div>
+    </footer>
+</body>
+</html>
