@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>水泵 / 壓力缸工程實績 | 城亨實業有限公司</title>
+    <title>水泵 / 壓力缸工程專頁 | 城亨實業有限公司</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei"; }
         body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
         a { text-decoration: none; color: inherit; }
         .container { width: 85%; max-width: 1200px; margin: 0 auto; }
         
+        /* 導覽列 */
         header { background-color: #ffffff; color: #1a365d; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         header .container { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
         .logo-container img { height: 48px; width: auto; display: block; }
@@ -19,25 +20,50 @@
 
         .dropdown { position: relative; display: inline-block; }
         .dropdown-btn { background-color: #1a365d; color: white !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
-        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; z-index: 1001; }
         .dropdown-content a { color: #2d3748 !important; padding: 12px 16px; display: block; font-size: 14px; border-bottom: 1px solid #edf2f7; }
+        .dropdown-content a:hover { background-color: #ebf8ff; color: #2b6cb0 !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
+        /* 標頭 */
         .page-header { background: #1a365d; color: white; padding: 120px 0 40px; text-align: center; }
         .page-header h2 { font-size: 36px; margin-bottom: 10px; }
         
-        .project-table { width: 100%; border-collapse: collapse; background: #fff; margin: 40px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
+        /* 區塊標題 */
+        section { padding: 50px 0; }
+        section h3 { text-align: center; font-size: 28px; margin-bottom: 30px; color: #1a365d; position: relative; }
+        section h3::after { content: ''; display: block; width: 50px; height: 3px; background-color: #3182ce; margin: 10px auto 0; }
+
+        /* 服務範疇卡片 */
+        .scope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .scope-card { background: white; padding: 30px 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #3182ce; }
+        .scope-card h4 { font-size: 20px; color: #1a365d; margin-bottom: 15px; }
+        .scope-card ul { list-style: none; padding: 0; }
+        .scope-card ul li { font-size: 15px; color: #4a5568; margin-bottom: 8px; padding-left: 18px; position: relative; }
+        .scope-card ul li::before { content: '✔'; color: #3182ce; position: absolute; left: 0; font-weight: bold; }
+
+        /* 工程照片圖鑑庫 */
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .photo-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .photo-card img { width: 100%; height: 220px; object-fit: cover; }
+        .photo-card-body { padding: 15px 20px; }
+        .photo-card-body h4 { font-size: 17px; color: #1a365d; margin-bottom: 5px; }
+        .photo-card-body p { font-size: 13px; color: #718096; }
+
+        /* 項目實績表格 */
+        .project-table { width: 100%; border-collapse: collapse; background: #fff; margin: 20px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
         .project-table th { background-color: #1a365d; color: white; padding: 15px; text-align: left; }
         .project-table td { padding: 14px 15px; border-bottom: 1px solid #edf2f7; font-size: 15px; }
         .status-badge { background-color: #48bb78; color: white; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
 
-        footer { background-color: #1a365d; color: #e2e8f0; padding: 40px 0 20px; font-size: 14px; margin-top: 60px; border-top: 3px solid #3182ce; }
-        .footer-container { width: 85%; max-width: 1100px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
-        .footer-box h5 { color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 12px; }
-        .footer-box p { margin-bottom: 6px; color: #cbd5e0; line-height: 1.6; }
-        .footer-box strong { color: #ffffff; }
-        .footer-bottom { padding-top: 20px; text-align: center; font-size: 13px; color: #a0aec0; }
+        /* 頁尾 */
+        footer { background-color: #1a365d; color: #cbd5e0; padding: 25px 0; font-size: 14px; border-top: 3px solid #3182ce; text-align: center; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; }
+            nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 5px 8px; }
+        }
     </style>
 </head>
 <body>
@@ -58,7 +84,7 @@
                             <a href="pumps.html">🚰 水泵 / 壓力缸專頁</a>
                         </div>
                     </li>
-                    <li><a href="index.html#contact">聯絡我們</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,48 +92,105 @@
 
     <div class="page-header">
         <div class="container">
-            <h2>水泵 / 壓力缸 / 水閘項目實績</h2>
-            <p>專業水務系統、核心水閘更換、淡水/鹹水泵維修及氣壓缸工程</p>
+            <h2>水泵 / 壓力缸工程專頁</h2>
+            <p>政府註冊電業承辦商 · 專業水務泵房改善、水閘更換及壓力缸維修檢測</p>
         </div>
     </div>
 
-    <div class="container">
-        <table class="project-table">
-            <thead>
-                <tr>
-                    <th style="width: 15%;">工程年份</th>
-                    <th style="width: 45%;">項目地點 / 機構名稱</th>
-                    <th style="width: 25%;">工程內容撮要</th>
-                    <th style="width: 15%;">狀態</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>2024 年</td><td><strong>大埔警署</strong></td><td>核心更換水閘工程項目</td><td><span class="status-badge">已竣工</span></td></tr>
-                <tr><td>2024 年</td><td><strong>灣仔警署</strong></td><td>核心更換水閘工程項目</td><td><span class="status-badge">已竣工</span></td></tr>
-                <tr><td>2026 年</td><td><strong>華盛邨公廁 / 錫降圍公廁</strong></td><td>水務系統泵房改善與水泵更換工程</td><td><span class="status-badge">已竣工</span></td></tr>
-            </tbody>
-        </table>
-    </div>
+    <!-- 服務範疇 -->
+    <section>
+        <div class="container">
+            <h3>專業水務與壓力缸服務範疇</h3>
+            <div class="scope-grid">
+                <div class="scope-card">
+                    <h4>🚰 水泵系統工程</h4>
+                    <ul>
+                        <li>淡水泵 / 鹹水供水泵更換及維修</li>
+                        <li>排污泵 / 地下水抽水泵系統安裝</li>
+                        <li>自動加壓水泵系統與變頻控制調校</li>
+                        <li>水泵馬達絕緣測試與軸承更換</li>
+                    </ul>
+                </div>
+                <div class="scope-card">
+                    <h4>🎈 壓力缸 / 氣壓缸工程</h4>
+                    <ul>
+                        <li>壓力缸預充氣壓測試與安全檢測</li>
+                        <li>內置橡膠氣囊（Bladder）更換</li>
+                        <li>壓力開關（Pressure Switch）精密設定</li>
+                        <li>壓力容器保養、防銹與管道連接</li>
+                    </ul>
+                </div>
+                <div class="scope-card">
+                    <h4>🛠️ 泵房改善與水閘工程</h4>
+                    <ul>
+                        <li>政府設施 / 警署核心水閘更換</li>
+                        <li>泵房控制箱電路優化與故障排除</li>
+                        <li>水務管道止回閥及控制閥更換</li>
+                        <li>定期預防性檢測與緊急故障支援</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精選現場工程圖鑑 -->
+    <section style="background-color: #ffffff;">
+        <div class="container">
+            <h3>精選現場水務工程項目</h3>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <img src="hku-rodriguez-court-pump.jpg" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600'" alt="香港大學羅理基閣食水泵更換工程">
+                    <div class="photo-card-body">
+                        <h4>香港大學 羅理基閣</h4>
+                        <p>食水泵更換及水管軟接頭防震組裝工程</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="the-hermitage-water-pump.jpg" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600'" alt="帝峯皇殿供水泵更換工程">
+                    <div class="photo-card-body">
+                        <h4>帝峯皇殿 (The Hermitage)</h4>
+                        <p>大型住宅屋苑水泵房供水泵更換工程</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="hku-freshwater-pressure-tank.jpg" onerror="this.src='https://images.unsplash.com/photo-1542013936693-884638332954?w=600'" alt="香港大學食水壓力缸更換工程">
+                    <div class="photo-card-body">
+                        <h4>香港大學 泵房設施</h4>
+                        <p>雙氣壓食水壓力缸更換及壓力閥調校工程</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工程實績列表 -->
+    <section style="background-color: #f8fafc;">
+        <div class="container">
+            <h3>完整工程項目實績 (Job References)</h3>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">工程年份</th>
+                        <th style="width: 45%;">項目地點 / 機構名稱</th>
+                        <th style="width: 25%;">工程內容撮要</th>
+                        <th style="width: 15%;">狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2026 年</td><td><strong>香港大學 (羅理基閣)</strong></td><td>食水泵更換及管道防震組裝工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>帝峯皇殿 (The Hermitage)</strong></td><td>屋苑水泵房核心供水泵更換工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>香港大學 (泵房設施)</strong></td><td>雙氣壓食水壓力缸更換及壓力閥調校</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>華盛邨公廁 / 錫降圍公廁</strong></td><td>水務系統泵房改善與水泵更換工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2024 年</td><td><strong>大埔警署</strong></td><td>核心更換水閘工程項目</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2024 年</td><td><strong>灣仔警署</strong></td><td>核心更換水閘工程項目</td><td><span class="status-badge">已竣工</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-box">
-                    <h5>城亨實業有限公司</h5>
-                    <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">City Full Industrial Company Limited</p>
-                    <p><strong>資質認可：</strong>政府註冊電業承辦商</p>
-                    <p><strong>公司地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
-                </div>
-                <div class="footer-box">
-                    <h5>快速聯絡方式</h5>
-                    <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
-                    <p><strong>維修熱線：</strong>6099 5650 (昌哥)</p>
-                    <p><strong>諮詢電郵：</strong>info@cityfull.com.hk</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
-            </div>
+        <div class="container">
+            &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
         </div>
     </footer>
 </body>
