@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電動閘 / 自動門實績 | 城亨實業有限公司</title>
+    <title>電動閘 / 自動門專頁 | 城亨實業有限公司</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei"; }
         body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
         a { text-decoration: none; color: inherit; }
         .container { width: 85%; max-width: 1200px; margin: 0 auto; }
         
+        /* 導覽列 */
         header { background-color: #ffffff; color: #1a365d; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         header .container { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
         .logo-container img { height: 48px; width: auto; display: block; }
@@ -19,25 +20,50 @@
 
         .dropdown { position: relative; display: inline-block; }
         .dropdown-btn { background-color: #1a365d; color: white !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
-        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; z-index: 1001; }
         .dropdown-content a { color: #2d3748 !important; padding: 12px 16px; display: block; font-size: 14px; border-bottom: 1px solid #edf2f7; }
+        .dropdown-content a:hover { background-color: #ebf8ff; color: #2b6cb0 !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
+        /* 標頭 */
         .page-header { background: #1a365d; color: white; padding: 120px 0 40px; text-align: center; }
         .page-header h2 { font-size: 36px; margin-bottom: 10px; }
         
-        .project-table { width: 100%; border-collapse: collapse; background: #fff; margin: 40px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
+        section { padding: 50px 0; }
+        section h3 { text-align: center; font-size: 28px; margin-bottom: 30px; color: #1a365d; position: relative; }
+        section h3::after { content: ''; display: block; width: 50px; height: 3px; background-color: #3182ce; margin: 10px auto 0; }
+
+        /* 服務與條款卡片網格 */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .info-card { background: white; padding: 30px 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #3182ce; }
+        .info-card h4 { font-size: 20px; color: #1a365d; margin-bottom: 15px; border-bottom: 1px solid #edf2f7; padding-bottom: 8px; }
+        .info-card ul { list-style: none; padding: 0; }
+        .info-card ul li { font-size: 15px; color: #4a5568; margin-bottom: 10px; padding-left: 18px; position: relative; }
+        .info-card ul li::before { content: '✔'; color: #3182ce; position: absolute; left: 0; font-weight: bold; }
+
+        /* 工程照片圖鑑庫 */
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .photo-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .photo-card img { width: 100%; height: 200px; object-fit: cover; }
+        .photo-card-body { padding: 15px 20px; }
+        .photo-card-body h4 { font-size: 17px; color: #1a365d; margin-bottom: 5px; }
+        .photo-card-body p { font-size: 13px; color: #718096; }
+
+        /* 項目實績表格 */
+        .project-table { width: 100%; border-collapse: collapse; background: #fff; margin: 20px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
         .project-table th { background-color: #1a365d; color: white; padding: 15px; text-align: left; }
         .project-table td { padding: 14px 15px; border-bottom: 1px solid #edf2f7; font-size: 15px; }
         .status-badge { background-color: #48bb78; color: white; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
 
-        footer { background-color: #1a365d; color: #e2e8f0; padding: 40px 0 20px; font-size: 14px; margin-top: 60px; border-top: 3px solid #3182ce; }
-        .footer-container { width: 85%; max-width: 1100px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
-        .footer-box h5 { color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 12px; }
-        .footer-box p { margin-bottom: 6px; color: #cbd5e0; line-height: 1.6; }
-        .footer-box strong { color: #ffffff; }
-        .footer-bottom { padding-top: 20px; text-align: center; font-size: 13px; color: #a0aec0; }
+        .callout-box { background: #ebf8ff; border-left: 4px solid #3182ce; padding: 20px; border-radius: 6px; margin-top: 20px; font-size: 15px; color: #2b6cb0; }
+
+        footer { background-color: #1a365d; color: #cbd5e0; padding: 25px 0; font-size: 14px; border-top: 3px solid #3182ce; text-align: center; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; }
+            nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 5px 8px; }
+        }
     </style>
 </head>
 <body>
@@ -58,7 +84,7 @@
                             <a href="pumps.html">🚰 水泵 / 壓力缸專頁</a>
                         </div>
                     </li>
-                    <li><a href="index.html#contact">聯絡我們</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,51 +92,136 @@
 
     <div class="page-header">
         <div class="container">
-            <h2>電動趟閘 / 自動門 / 捲閘項目實績</h2>
-            <p>政府機構、公共設施、警署、學校及大型屋苑門禁安保系統承辦工程</p>
+            <h2>電動趟閘 / 自動門 / 捲閘專頁</h2>
+            <p>政府註冊電業承辦商 · 專業保養年檢、E-Call 緊急維修及出具安全檢查報告</p>
         </div>
     </div>
 
-    <div class="container">
-        <table class="project-table">
-            <thead>
-                <tr>
-                    <th style="width: 15%;">工程年份</th>
-                    <th style="width: 45%;">項目地點 / 機構名稱</th>
-                    <th style="width: 25%;">工程內容撮要</th>
-                    <th style="width: 15%;">狀態</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>2025 年</td><td><strong>帝湖居</strong></td><td>住宅屋苑大型鐵閘專業維修</td><td><span class="status-badge">已竣工</span></td></tr>
-                <tr><td>2025 年</td><td><strong>香港國際學校 / 大潭學校</strong></td><td>安全路障系統與 Bollard 安裝工程</td><td><span class="status-badge">已竣工</span></td></tr>
-                <tr><td>2024 年</td><td><strong>觀塘碼頭</strong></td><td>液壓型專業電門機安裝工程</td><td><span class="status-badge">已竣工</span></td></tr>
-                <tr><td>2024 年</td><td><strong>政府飛行服務隊</strong></td><td>出入閘專用系統工程 (共 2 套)</td><td><span class="status-badge">已竣工</span></td></tr>
-                <tr><td>2024 年</td><td><strong>政府總部 (政總)</strong></td><td>更換及加長部份車閘系統工程</td><td><span class="status-badge">已竣工</span></td></tr>
-                <tr><td>2023 年</td><td><strong>中華電力 (CLP 佐敦)</strong></td><td>電力設施專用吊卸閘機安裝</td><td><span class="status-badge">已竣工</span></td></tr>
-            </tbody>
-        </table>
-    </div>
+    <!-- 保養服務與條款說明 -->
+    <section>
+        <div class="container">
+            <h3>保養檢測與緊急維修服務</h3>
+            <div class="grid-3">
+                <div class="info-card">
+                    <h4>🛠️ 定期保養與安全年檢</h4>
+                    <ul>
+                        <li><strong>單次安全年檢／保養：</strong>包含全面電路檢測、導軌清潔及潤滑，詳細檢查軸承、鏈條與軌道運作狀況。</li>
+                        <li><strong>年度定期保養合約：</strong>提供每年 2 次預防性保養檢查，並涵蓋 1 次日間 E-Call 到場支援。</li>
+                        <li><strong>零件更換調校：</strong>現場技術人員專業測試、調校及原廠零件更換。</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚨 24小時緊急電召 (E-Call)</h4>
+                    <ul>
+                        <li><strong>日間時段：</strong>星期一至六（09:00 - 18:00）快速到場支援。</li>
+                        <li><strong>夜間與假日：</strong>星期一至六夜間（18:00 - 00:00）及星期日、公眾假期全日服務。</li>
+                        <li><strong>通宵及特別極限時段：</strong>午夜 00:00 至 09:00 專責技術人員緊急響應。</li>
+                        <li><strong>惡劣天氣支援：</strong>黑色暴雨及八號或以上風球生效期間提供緊急搶修服務。</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>📋 官方報告規格與檢測承諾</h4>
+                    <ul>
+                        <li><strong>正式報告提交：</strong>完成現場檢測後 7 個工作天內交付 PDF 電子檔《閘門安全及狀況檢查報告》。</li>
+                        <li><strong>完整評估內容：</strong>報告包含技術人員資質、閘門編號、機械及電控 Checklist 清單、現場缺陷照片與改善方案建議。</li>
+                        <li><strong>作業安全保障：</strong>施工人員均具備相應電業資格並受勞工保險保障。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="callout-box">
+                💬 <strong>備註說明：</strong>離島或政府指定禁區範圍之服務，將按現場情況評估遠程交通；服務地點需提供安全到達及檢測之通道或工作平台。如需索取詳細標準報價單 (Standard Rate Card)，歡迎直接聯絡我們。
+            </div>
+        </div>
+    </section>
+
+    <!-- 精選現場工程圖鑑 -->
+    <section style="background-color: #ffffff;">
+        <div class="container">
+            <h3>精選現場工程項目</h3>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <img src="hku-science-building-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?w=600'" alt="香港大學許愛周科學館自動門工程">
+                    <div class="photo-card-body">
+                        <h4>香港大學 許愛周科學館</h4>
+                        <p>自動門系統安裝與調校工程</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="hku-chong-yuet-ming-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600'" alt="香港大學莊月明文娛中心自動門工程">
+                    <div class="photo-card-body">
+                        <h4>香港大學 莊月明文娛中心</h4>
+                        <p>大堂玻璃自動門系統維修及更換</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="hku-fire-glass-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b2?w=600'" alt="香港大學防火玻璃門安裝工程">
+                    <div class="photo-card-body">
+                        <h4>香港大學 防火玻璃門</h4>
+                        <p>符合消防規格之防火玻璃門組裝與安裝</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="argyle-street-barrier.jpg" onerror="this.src='https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600'" alt="亞皆老街113號更換車閘">
+                    <div class="photo-card-body">
+                        <h4>亞皆老街113號</h4>
+                        <p>停車場車閘系統更換及微調測試</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="hawaii-garden-gate.jpg" onerror="this.src='https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600'" alt="夏威夷花園車閘維修">
+                    <div class="photo-card-body">
+                        <h4>夏威夷花園</h4>
+                        <p>屋苑出入電動大閘維修及馬達檢測</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="modern-terminals-shutter.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600'" alt="現代貨櫃碼頭捲閘修理">
+                    <div class="photo-card-body">
+                        <h4>現代貨櫃碼頭 (Modern Terminals)</h4>
+                        <p>大型工業鋼捲閘維修及定期安全保養</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 完整項目實績列表 -->
+    <section style="background-color: #f8fafc;">
+        <div class="container">
+            <h3>完整工程項目實績 (Job References)</h3>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">工程年份</th>
+                        <th style="width: 45%;">項目地點 / 機構名稱</th>
+                        <th style="width: 25%;">工程內容撮要</th>
+                        <th style="width: 15%;">狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2026 年</td><td><strong>香港大學 (許愛周科學館)</strong></td><td>自動門安裝與系統調校工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>香港大學 (莊月明文娛中心)</strong></td><td>玻璃自動門更換與保養工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>香港大學 (校園設施)</strong></td><td>符合消防規格防火玻璃門安裝工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>亞皆老街 113 號</strong></td><td>停車場自動車閘系統更換工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>夏威夷花園</strong></td><td>住宅屋苑出入電動大閘維修工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2026 年</td><td><strong>現代貨櫃碼頭 (Modern Terminals)</strong></td><td>大型工業鋼捲閘故障搶修與保養</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2025 年</td><td><strong>帝湖居</strong></td><td>住宅屋苑大型鐵閘專業維修</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2025 年</td><td><strong>香港國際學校 / 大潭學校</strong></td><td>安全路障系統與 Bollard 安裝工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2024 年</td><td><strong>觀塘碼頭</strong></td><td>液壓型專業電門機安裝工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2024 年</td><td><strong>政府飛行服務隊</strong></td><td>出入閘專用系統工程 (共 2 套)</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2024 年</td><td><strong>政府總部 (政總)</strong></td><td>更換及加長部份車閘系統工程</td><td><span class="status-badge">已竣工</span></td></tr>
+                    <tr><td>2023 年</td><td><strong>中華電力 (CLP 佐敦)</strong></td><td>電力設施專用吊卸閘機安裝</td><td><span class="status-badge">已竣工</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-box">
-                    <h5>城亨實業有限公司</h5>
-                    <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">City Full Industrial Company Limited</p>
-                    <p><strong>資質認可：</strong>政府註冊電業承辦商</p>
-                    <p><strong>公司地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
-                </div>
-                <div class="footer-box">
-                    <h5>快速聯絡方式</h5>
-                    <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
-                    <p><strong>維修熱線：</strong>6099 5650 (昌哥)</p>
-                    <p><strong>諮詢電郵：</strong>info@cityfull.com.hk</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
-            </div>
+        <div class="container">
+            &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
         </div>
     </footer>
 </body>
