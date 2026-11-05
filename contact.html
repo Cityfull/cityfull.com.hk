@@ -10,6 +10,7 @@
         a { text-decoration: none; color: inherit; }
         .container { width: 85%; max-width: 1200px; margin: 0 auto; }
 
+        /* 導覽列 */
         header { background-color: #ffffff; color: #1a365d; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         header .container { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
         .logo-container img { height: 48px; width: auto; display: block; }
@@ -25,22 +26,70 @@
         .dropdown-content a:hover { background-color: #ebf8ff; color: #2b6cb0 !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
+        /* 標頭 */
         .page-header { background: #1a365d; color: white; padding: 120px 0 40px; text-align: center; }
         .page-header h2 { font-size: 36px; margin-bottom: 10px; }
 
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px auto; }
+        /* 聯絡資訊與表單網格 */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 40px auto 30px; }
         .contact-card { background: white; padding: 35px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #3182ce; }
         .contact-card h3 { color: #1a365d; font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid #edf2f7; padding-bottom: 10px; }
-        .contact-card p { font-size: 16px; color: #4a5568; margin-bottom: 12px; }
+        .contact-card p { font-size: 15px; color: #4a5568; margin-bottom: 12px; }
         .contact-card strong { color: #1a365d; }
         .highlight-phone { color: #e53e3e; font-weight: bold; font-size: 18px; }
 
-        footer { background-color: #1a365d; color: #cbd5e0; padding: 25px 0; font-size: 14px; border-top: 3px solid #3182ce; text-align: center; margin-top: 60px; }
+        /* 表單樣式 */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 14px; font-weight: bold; color: #1a365d; margin-bottom: 5px; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 14px; outline: none; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #3182ce; }
+        .submit-btn { width: 100%; background: #3182ce; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        .submit-btn:hover { background: #2b6cb0; }
+
+        /* 地圖區塊 */
+        .map-section { background: white; padding: 35px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 50px; border-top: 4px solid #3182ce; }
+        .map-section h3 { color: #1a365d; font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid #edf2f7; padding-bottom: 10px; }
+        .map-container { width: 100%; height: 400px; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        /* 右下角 WhatsApp 懸浮按鈕樣式 */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+            color: white;
+        }
+        .whatsapp-icon {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* 頁尾 */
+        footer { background-color: #1a365d; color: #cbd5e0; padding: 25px 0; font-size: 14px; border-top: 3px solid #3182ce; text-align: center; }
 
         @media (max-width: 768px) {
             header .container { flex-direction: column; }
             nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
             nav ul li { margin: 5px 8px; }
+            .whatsapp-float { bottom: 20px; right: 20px; padding: 10px 16px; font-size: 14px; }
         }
     </style>
 </head>
@@ -71,33 +120,84 @@
     <div class="page-header">
         <div class="container">
             <h2>聯絡我們</h2>
-            <p>歡迎隨時查詢工程報價、現場勘查及緊急故障維修</p>
+            <p>歡迎隨時填寫表單或直接致電查詢工程報價、現場勘查及緊急故障維修</p>
         </div>
     </div>
 
     <div class="container">
         <div class="contact-grid">
+            <!-- 左欄：線上傳送 Email 查詢表單 -->
             <div class="contact-card">
-                <h3>🏢 公司辦公室聯絡</h3>
+                <h3>✉️ 線上工程諮詢 / 報價查詢表單</h3>
+                <form action="https://formspree.io/f/xknlqwbv" method="POST">
+                    <div class="form-group">
+                        <label for="name">聯絡人姓名 *</label>
+                        <input type="text" id="name" name="name" placeholder="例如：陳先生 / Ms. Wong" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">聯絡電話 *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="例如：9123 4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">電子電郵 *</label>
+                        <input type="email" id="email" name="email" placeholder="例如：name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">查詢服務類別</label>
+                        <select id="service" name="service">
+                            <option value="戶外木工程">🪵 戶外木工程</option>
+                            <option value="電動趟閘/自動門/捲閘">🚪 電動趟閘 / 自動門 / 捲閘</option>
+                            <option value="水泵/壓力缸水務工程">🚰 水泵 / 氣壓缸水務工程</option>
+                            <option value="其他工程查詢">🛠️ 其他工程查詢</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">工程詳情與查詢內容 *</label>
+                        <textarea id="message" name="message" rows="4" placeholder="請簡述工程地點、現場狀況或所需規格..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">傳送查詢 (Send Message)</button>
+                </form>
+            </div>
+
+            <!-- 右欄：公司聯絡資訊 -->
+            <div class="contact-card">
+                <h3>🏢 公司辦公室與負責人資料</h3>
                 <p><strong>公司名稱：</strong>城亨實業有限公司</p>
                 <p><strong>英文名稱：</strong>City Full Industrial Company Limited</p>
                 <p><strong>政府資質：</strong>政府註冊電業承辦商</p>
+                <p><strong>項目經理：</strong>Walter So (6128 9867)</p>
+                <p><strong>自動門/趟閘維修熱線：</strong><span class="highlight-phone">6099 5650 (昌哥)</span></p>
                 <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
                 <p><strong>諮詢電郵：</strong>info@cityfull.com.hk / QS@cityfull.com.hk</p>
                 <p><strong>辦公地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
-            </div>
 
-            <div class="contact-card">
-                <h3>⚡ 專責負責人與熱線</h3>
-                <p><strong>項目經理：</strong>Walter So (6128 9867)</p>
-                <p><strong>自動門/趟閘維修熱線：</strong><span class="highlight-phone">6099 5650 (昌哥)</span></p>
-                <p><strong>服務範疇：</strong>戶外木地台、電動趟閘/捲閘、水泵氣壓缸及緊急 E-Call 支援。</p>
-                <p style="margin-top: 20px; font-size: 14px; color: #718096; background: #ebf8ff; padding: 12px; border-radius: 6px;">
-                    💡 提示：如需索取工程維修標準價目表 (Standard Rate Card)，可直接致電或電郵與我們聯絡。
-                </p>
+                <div style="margin-top: 25px; font-size: 14px; color: #718096; background: #ebf8ff; padding: 15px; border-radius: 6px; border-left: 4px solid #3182ce;">
+                    💡 <strong>提示：</strong>填寫表單送出後，我們的技術人員與項目經理會盡快回覆並發送報價電子郵件至您的電郵信箱。
+                </div>
+            </div>
+        </div>
+
+        <!-- Google 地圖區塊 -->
+        <div class="map-section">
+            <h3>📍 公司位置圖 (Google Maps)</h3>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.077651034371!2d114.1866416!3d22.3129381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400d7249b0eb5%3A0x6b7bb7e29a8a7299!2zOSBMT0sgU0hBTiBST0FELCBUIEtPIFdBTiAsIEtPV0xPT04!5e0!3m2!1szh-TW!2shk!4v1700000000000!5m2!1szh-TW!2shk" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </div>
+
+    <!-- 右下角 WhatsApp 懸浮按鈕 -->
+    <a href="https://wa.me/85261289867?text=你好！我想查詢城亨實業的工程服務報價。" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        WhatsApp 查詢
+    </a>
 
     <footer>
         <div class="container">
