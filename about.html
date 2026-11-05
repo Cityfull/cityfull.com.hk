@@ -10,34 +10,51 @@
         a { text-decoration: none; color: inherit; }
         .container { width: 85%; max-width: 1200px; margin: 0 auto; }
 
+        /* 頂部導覽列 */
         header { background-color: #ffffff; color: #1a365d; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         header .container { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
         .logo-container img { height: 48px; width: auto; display: block; }
 
         nav ul { display: flex; list-style: none; align-items: center; }
         nav ul li { margin-left: 20px; position: relative; }
-        nav ul li a { font-size: 15px; font-weight: 600; color: #1a365d; }
+        nav ul li a { font-size: 15px; font-weight: 600; color: #1a365d; transition: color 0.3s; }
+        nav ul li a:hover { color: #3182ce; }
 
         .dropdown { position: relative; display: inline-block; }
         .dropdown-btn { background-color: #1a365d; color: white !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
-        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15); border-radius: 4px; top: 100%; left: 0; z-index: 1001; }
         .dropdown-content a { color: #2d3748 !important; padding: 12px 16px; display: block; font-size: 14px; border-bottom: 1px solid #edf2f7; }
+        .dropdown-content a:hover { background-color: #ebf8ff; color: #2b6cb0 !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
+        /* 標頭 */
         .page-header { background: #1a365d; color: white; padding: 120px 0 40px; text-align: center; }
         .page-header h2 { font-size: 36px; margin-bottom: 10px; }
 
-        .about-content { background: white; padding: 40px; border-radius: 8px; margin: 40px auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .about-content h3 { color: #1a365d; font-size: 24px; margin-bottom: 15px; border-bottom: 2px solid #3182ce; padding-bottom: 8px; }
-        .about-content p { color: #4a5568; margin-bottom: 20px; font-size: 16px; }
+        /* 內容區塊 */
+        .about-section { background: white; padding: 40px; border-radius: 8px; margin: 40px auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .about-section h3 { color: #1a365d; font-size: 24px; margin-bottom: 15px; border-bottom: 2px solid #3182ce; padding-bottom: 8px; }
+        .about-section p { color: #4a5568; margin-bottom: 20px; font-size: 16px; }
 
-        footer { background-color: #1a365d; color: #e2e8f0; padding: 40px 0 20px; font-size: 14px; margin-top: 60px; border-top: 3px solid #3182ce; }
-        .footer-container { width: 85%; max-width: 1100px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
-        .footer-box h5 { color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 12px; }
-        .footer-box p { margin-bottom: 6px; color: #cbd5e0; line-height: 1.6; }
-        .footer-box strong { color: #ffffff; }
-        .footer-bottom { padding-top: 20px; text-align: center; font-size: 13px; color: #a0aec0; }
+        /* 客戶與實績標籤 */
+        .client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px; }
+        .client-card { background: #f8fafc; padding: 20px; border-radius: 6px; border-left: 4px solid #3182ce; }
+        .client-card h4 { font-size: 18px; color: #1a365d; margin-bottom: 8px; }
+        .client-card p { font-size: 14px; color: #718096; margin-bottom: 0; }
+
+        /* 核心承諾清單 */
+        .promise-list { list-style: none; padding: 0; }
+        .promise-list li { font-size: 16px; color: #2d3748; margin-bottom: 12px; padding-left: 25px; position: relative; }
+        .promise-list li::before { content: '✔'; color: #3182ce; position: absolute; left: 0; font-weight: bold; font-size: 18px; }
+
+        /* 簡約頁尾 */
+        footer { background-color: #1a365d; color: #cbd5e0; padding: 25px 0; font-size: 14px; border-top: 3px solid #3182ce; text-align: center; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; }
+            nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 5px 8px; }
+        }
     </style>
 </head>
 <body>
@@ -58,7 +75,7 @@
                             <a href="pumps.html">🚰 水泵 / 壓力缸專頁</a>
                         </div>
                     </li>
-                    <li><a href="index.html#contact">聯絡我們</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
                 </ul>
             </nav>
         </div>
@@ -67,42 +84,62 @@
     <div class="page-header">
         <div class="container">
             <h2>關於城亨實業</h2>
-            <p>政府註冊電業承辦商 · 專業工程顧問與資深施工團隊</p>
+            <p>政府註冊電業承辦商 · 專業工程顧問與資深技術團隊</p>
         </div>
     </div>
 
     <div class="container">
-        <div class="about-content">
+        <!-- 公司簡介 -->
+        <div class="about-section">
             <h3>公司簡介</h3>
-            <p>城亨實業有限公司（City Full Industrial Company Limited）為香港政府註冊電業承辦商。公司長期深耕於建築物維修、門禁安保工程、戶外木建築及水務系統改善工程，擁有一支經驗豐富的工程管理團隊與專業技術人員。</p>
+            <p>城亨實業有限公司（City Full Industrial Company Limited）為香港<strong>政府註冊電業承辦商</strong>。公司長期深耕於建築物維修、門禁安保系統、戶外木工程及水務泵房改善工程，擁有一支經驗豐富的工程管理團隊與專責技術人員，為各類機構與物業提供一站式專業服務。</p>
             
-            <h3>我們的專業領域</h3>
-            <p>我司業務涵蓋三大核心領域：<strong>戶外木工程</strong>（環保木/防腐木地台及天台花園工程）、<strong>電動趟閘與自動門工程</strong>（車閘、捲閘保養檢測及24小時緊急維修），以及<strong>水泵與氣壓缸水務工程</strong>。曾先後為政府部門、警署設施、香港國際學校、中華電力 (CLP) 及大型住宅屋苑提供優質施工及維修保養服務。</p>
+            <h3>核心業務範疇</h3>
+            <p>我司業務專注於三大核心領域：</p>
+            <ul class="promise-list" style="margin-bottom: 25px;">
+                <li><strong>戶外木工程：</strong>獨立屋泳池地台、商業大廈天台花園環保木及防腐木鋪設工程。</li>
+                <li><strong>電動趟閘 / 自動門 / 捲閘工程：</strong>自動門更換安裝、車閘保養檢測、E-Call 24小時緊急搶修及出具官方安全檢查報告。</li>
+                <li><strong>水泵 / 壓力缸水務工程：</strong>核心水閘更換、淡鹹水供水泵更換、氣壓缸保養及泵房控制系統優化。</li>
+            </ul>
 
-            <h3>專業服務承諾</h3>
-            <p>城亨實業始終堅持「工程不外判、技術人員全程參與」的原則，確保每一個工程項目均由顧問與資深技術人員現場視察與監督。我們秉持價格公道透明、優質可靠的理念，為廣大物業管理處、業主立案法團及商業客戶提供一站式工程服務。</p>
+            <h3>代表性服務客戶與項目實績</h3>
+            <p>城亨實業憑藉過硬的技術與嚴謹的施工態度，先後承辦多個大型機構、大專院校、政府設施及高端屋苑之關鍵工程：</p>
+            
+            <div class="client-grid">
+                <div class="client-card">
+                    <h4>🏛️ 大專院校與教育機構</h4>
+                    <p>香港大學（許愛周科學館自動門、莊月明文娛中心自動門、防火玻璃門、羅理基閣食水泵及壓力缸工程）、香港國際學校 (HKIS)。</p>
+                </div>
+                <div class="client-card">
+                    <h4>👮 政府設施與公用事業</h4>
+                    <p>政府總部 (政總)、政府飛行服務隊、大埔警署、灣仔警署核心水閘工程、中華電力 (CLP 佐敦)。</p>
+                </div>
+                <div class="client-card">
+                    <h4>🏢 商業設施與物流碼頭</h4>
+                    <p>現代貨櫃碼頭 (Modern Terminals) 工業捲閘修理、觀塘碼頭液壓電門機工程、灣仔 QRE Plaza 天台戶外木工程。</p>
+                </div>
+                <div class="client-card">
+                    <h4>🏘️ 高端住宅屋苑與獨立屋</h4>
+                    <p>帝峯皇殿供水泵工程、帝湖居、夏威夷花園、亞皆老街 113 號、九龍塘及青龍頭獨立屋與屋苑工程。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 服務承諾 -->
+        <div class="about-section">
+            <h3>四大專業服務承諾</h3>
+            <ul class="promise-list">
+                <li><strong>技術團隊全程參與：</strong>工程顧問與資深技術人員現場監督及施工，專業作業絕不外判。</li>
+                <li><strong>合規與安全保障：</strong>施工人員均持相應電業牌照，工程受完整勞工保險保障，確保作業安全。</li>
+                <li><strong>透明合理報價：</strong>提供標準價目參考，費用公開透明，絕無隱藏收費。</li>
+                <li><strong>快速響應支援：</strong>設有 24 小時緊急維修熱線，全天候保障客戶設施運作順暢。</li>
+            </ul>
         </div>
     </div>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-box">
-                    <h5>城亨實業有限公司</h5>
-                    <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">City Full Industrial Company Limited</p>
-                    <p><strong>資質認可：</strong>政府註冊電業承辦商</p>
-                    <p><strong>公司地址：</strong>九龍土瓜灣落山道108號志昌工業大樓地下C舖</p>
-                </div>
-                <div class="footer-box">
-                    <h5>快速聯絡方式</h5>
-                    <p><strong>辦公電話：</strong>(852) 2631 3613 / 6128 9867</p>
-                    <p><strong>維修熱線：</strong>6099 5650 (昌哥)</p>
-                    <p><strong>諮詢電郵：</strong>info@cityfull.com.hk</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
-            </div>
+        <div class="container">
+            &copy; 2026 城亨實業有限公司 City Full Industrial Company Limited. 版權所有。
         </div>
     </footer>
 </body>
